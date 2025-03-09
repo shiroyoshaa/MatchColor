@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/clmain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="#FFCFCF">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clstartwindow"
+        android:layout_width="350dp"
+        android:layout_height="90dp"
+        android:background="@drawable/shape_rounder_start"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.widget.Button
+            android:id="@+id/btnStart"
+            android:layout_width="300dp"
+            android:layout_height="65dp"
+            android:background="@drawable/shape_rounder_buttons"
+            android:backgroundTint="#FF6565"
+            android:text="start"
+            android:textAllCaps="true"
+            android:textColor="#6E0000"
+            android:textSize="35sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.52" />
+        <!--        <android.widget.Button-->
+        <!--            android:layout_width="280dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:background="@drawable/shape_rounder_buttons"-->
+        <!--            android:backgroundTint="#FF6565"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@+id/button2"-->
+        <!--            android:text="menu"-->
+        <!--            android:textAllCaps="true"-->
+        <!--            android:textSize="35sp"-->
+        <!--            android:textColor="#5A1414"/>-->
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <ProgressBar
+        android:id="@+id/pb"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="350dp"
+        android:layout_height="18dp"
+        android:layout_marginTop="80dp"
+        android:max="100"
+        android:progress="0"
+        android:progressBackgroundTint="#FFABAB"
+        android:progressTint="#A04545"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="score: 0"
+        android:textAllCaps="true"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pb" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clEasyCircles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <View
+            android:id="@+id/easyBlocker"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvEasyFirst"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginEnd="170dp"
+            android:layout_marginBottom="50dp"
+            app:cardBackgroundColor="@color/whitlyBlue"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvEasySecond"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="50dp"
+            app:cardBackgroundColor="@color/whitlyBlue"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cvEasyFirst"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvEasyThird"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="15dp"
+            app:cardBackgroundColor="@color/whitlyBlue2"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cvEasyFirst" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clHardCircles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <View
+            android:id="@+id/view3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvHardFirst"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginBottom="50dp"
+            app:cardBackgroundColor="@color/MeduimdarkGreenly"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvHardSecond"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginBottom="50dp"
+            app:cardBackgroundColor="@color/MeduimdarkGreenly"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cvHardFirst"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvHardThird"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="130dp"
+            android:layout_marginBottom="50dp"
+            app:cardBackgroundColor="@color/MeduimdarkGreenly"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="35dp"
+            android:layout_marginStart="25dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cvHardSecond"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvHardFourth"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+
+            android:layout_marginBottom="50dp"
+            app:cardBackgroundColor="@color/MeduimdarkGreenly"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="35dp"
+            android:layout_marginStart="25dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cvHardThird"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvHardfifth"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="40dp"
+            app:cardBackgroundColor="@color/MeduimdarkGreenly"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cvHardFirst" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvHardsixth"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="25dp"
+            app:cardBackgroundColor="@color/MeduimdarkGreenly"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="15dp"
+            app:layout_constraintStart_toEndOf="@+id/cvHardfifth"
+            app:layout_constraintTop_toBottomOf="@+id/cvHardSecond" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvHardSeventh"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            app:cardBackgroundColor="@color/MeduimdarkGreenly"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="35dp"
+            android:layout_marginStart="25dp"
+            app:layout_constraintStart_toEndOf="@+id/cvHardsixth"
+            app:layout_constraintTop_toBottomOf="@+id/cvHardThird" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvHardEight"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="45dp"
+            app:cardBackgroundColor="@color/MeduimdarkGreenly"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="35dp"
+            android:layout_marginStart="25dp"
+            app:layout_constraintHorizontal_bias="0.857"
+            app:layout_constraintStart_toEndOf="@+id/cvHardSeventh"
+            app:layout_constraintTop_toBottomOf="@+id/cvHardFourth" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvHardNinth"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="250dp"
+            app:cardBackgroundColor="@color/MeduimdarkGreenly"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="15dp"
+            android:layout_marginStart="40dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cvHardfifth" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvHardTenth"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            app:cardBackgroundColor="@color/MeduimdarkGreenly"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="15dp"
+            android:layout_marginStart="25dp"
+            app:layout_constraintStart_toEndOf="@+id/cvHardNinth"
+            app:layout_constraintTop_toBottomOf="@+id/cvHardsixth" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvHardEleventh"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="130dp"
+            app:cardBackgroundColor="@color/MeduimdarkGreenly2"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="35dp"
+            android:layout_marginStart="25dp"
+            app:layout_constraintStart_toEndOf="@+id/cvHardTenth"
+            app:layout_constraintTop_toBottomOf="@+id/cvHardSeventh" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvHardTwelfth"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="45dp"
+            app:cardBackgroundColor="@color/MeduimdarkGreenly"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="35dp"
+            android:layout_marginStart="25dp"
+
+            app:layout_constraintStart_toEndOf="@+id/cvHardEleventh"
+            app:layout_constraintTop_toBottomOf="@+id/cvHardEight" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvHardThirtennth"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="250dp"
+            app:cardBackgroundColor="@color/MeduimdarkGreenly"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="15dp"
+            android:layout_marginStart="40dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cvHardNinth" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvHardFourteenth"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            app:cardBackgroundColor="@color/MeduimdarkGreenly"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="15dp"
+            android:layout_marginStart="25dp"
+            app:layout_constraintStart_toEndOf="@+id/cvHardThirtennth"
+            app:layout_constraintTop_toBottomOf="@+id/cvHardTenth" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvHardFifteenth"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            app:cardBackgroundColor="@color/MeduimdarkGreenly2"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="35dp"
+            android:layout_marginStart="25dp"
+            app:layout_constraintStart_toEndOf="@+id/cvHardFourteenth"
+            app:layout_constraintTop_toBottomOf="@+id/cvHardEleventh" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvHardSixteenth"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            app:cardBackgroundColor="@color/MeduimdarkGreenly"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="35dp"
+            android:layout_marginStart="25dp"
+            app:layout_constraintStart_toEndOf="@+id/cvHardFifteenth"
+            app:layout_constraintTop_toBottomOf="@+id/cvHardTwelfth" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clMediumCircles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvMediumFirst"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="250dp"
+            android:layout_marginBottom="50dp"
+            app:cardBackgroundColor="@color/MeduimdarkGreenly"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvMediumSecond"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="130dp"
+            android:layout_marginBottom="50dp"
+            app:cardBackgroundColor="@color/MeduimdarkGreenly"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cvMediumFirst"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvMeduimThird"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginBottom="50dp"
+            app:cardBackgroundColor="@color/MeduimdarkGreenly"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="35dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cvMediumSecond"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvMediumfourth"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginEnd="250dp"
+            android:layout_marginBottom="320dp"
+            app:cardBackgroundColor="@color/MeduimdarkGreenly"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="35dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cvMediumFirst" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvMediumfifth"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginEnd="130dp"
+            android:layout_marginBottom="320dp"
+            app:cardBackgroundColor="@color/MeduimdarkGreenly2"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cvMediumfourth"
+            app:layout_constraintTop_toBottomOf="@+id/cvMediumSecond" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvMediumSixth"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="35dp"
+            app:cardBackgroundColor="@color/MeduimdarkGreenly"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="26dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cvMediumfifth"
+            app:layout_constraintTop_toBottomOf="@+id/cvMeduimThird" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clGameOVerWindow"
+        android:layout_width="350dp"
+        android:layout_height="190dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/shape_rounder_wronganswer"
+        android:visibility="gone"
+        >
+
+        <android.widget.Button
+            android:id="@+id/btnTryAgain"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:background="@drawable/shape_rounder_buttons"
+            android:backgroundTint="#FAB9B9"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            android:layout_marginBottom="25dp"
+            android:layout_marginStart="5dp"
+            android:text="try again"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textSize="18dp"
+/>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="game over"
+            android:textStyle="bold"
+            android:textSize="35sp"
+            android:textAllCaps="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginBottom="45dp"
+            android:textColor="#320707"
+            android:layout_marginEnd="60dp"
+            />
+
+        <ImageView
+            android:id="@+id/ivSadlyFace"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/sadly_face"
+            android:layout_marginTop="40dp"
+            android:layout_marginStart="196dp"
+/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clRestartWindow"
+        android:layout_width="350dp"
+        android:layout_height="190dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"
+        android:background="@drawable/shape_rounder_finisher_welldone">
+
+        <android.widget.Button
+            android:id="@+id/btnRestart"
+            android:layout_marginTop="55dp"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:background="@drawable/shape_rounder_buttons"
+            android:backgroundTint="#FAB9B9"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="restart"
+            android:textAllCaps="true"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="50dp"
+            android:text="well done!"
+            android:textAllCaps="true"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            android:textColor="#4A1D1D"
+            app:layout_constraintBottom_toTopOf="@+id/btnRestart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="45dp"/>
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/funny_face"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginBottom="60dp"
+            android:layout_marginStart="200dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

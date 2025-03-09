@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="Easygrad">#CD5C5C</color> <!-- Сделан более ярким -->
+    <color name="Easygrad2">#B03A3A</color> <!-- Углублен в тёмный тон -->
+
+    <color name="whitlyBlue">#6CE5CF</color>
+    <color name="whitlyBlue2">#41C5A8</color> <!-- Сделан более зелёным, контраст увеличен -->
+
+    <color name="Easygrennly">#5AE537</color>
+    <color name="Easygrennly2">#3FA520</color> <!-- Сделан более глубоким зелёным -->
+
+    <color name="MeduimPurple">#3C096C</color>
+    <color name="MeduimPurple2">#5D1E9A</color> <!-- Добавлена насыщенность, сделан светлее -->
+
+    <color name="MeduimdarkGreenly">#606C38</color>
+    <color name="MeduimdarkGreenly2">#8B9B5A</color> <!-- Сделан более светлым и жёлтым для контраста -->
+
+    <color name="HardBlue">#778DA9</color>
+    <color name="HardBlue2">#4A6D8C</color> <!-- Сделан темнее и глубже -->
+
+    <color name="hardRedly">#E63946</color>
+    <color name="hardRedly2">#B22222</color>
+
+    <color name="ImposterYellow">#FFD700</color> <!-- Золотистый, яркий -->
+    <color name="ImposterYellow2">#E6B800</color> <!-- Чуть затемнённый вариант -->
+
+    <color name="ImposterCyan">#00FFFF</color> <!-- Чистый голубой -->
+    <color name="ImposterCyan2">#00D1D1</color> <!-- Чуть затемнённый, ближе к бирюзе -->
+
+    <color name="ImposterMagenta">#FF00FF</color> <!-- Яркий фиолетово-розовый -->
+    <color name="ImposterMagenta2">#D100D1</color> <!-- Затемнённый вариант -->
+
+    <color name="ImposterOrange">#FF4500</color> <!-- Огненный оранжевый -->
+    <color name="ImposterOrange2">#E03C00</color>
+
+
+
+    <!-- Новые интересные цвета для импостера -->
+    <color name="ImposterDeepPurple">#4B0082</color> <!-- Индиго, глубокий фиолетовый -->
+    <color name="ImposterDeepPurple2">#6200A3</color> <!-- Чуть светлее, но тоже насыщенный -->
+
+    <color name="ImposterNeonGreen">#39FF14</color> <!-- Ядовито-зелёный, заметный -->
+    <color name="ImposterNeonGreen2">#2EB812</color> <!-- Чуть затемнённый вариант -->
+
+    <color name="ImposterDarkRed">#8B0000</color> <!-- Кроваво-красный -->
+    <color name="ImposterDarkRed2">#A30F0F</color> <!-- Чуть светлее, но всё ещё агрессивный -->
+
+    <color name="ImposterTeal">#008080</color> <!-- Глубокий бирюзовый (теал) -->
+    <color name="ImposterTeal2">#007070</color> <!-- Затемнённый вариант -->
+
+    <color name="ImposterPink">#FF69B4</color> <!-- Ярко-розовый, броский -->
+    <color name="ImposterPink2">#D75899</color> <!-- Чуть мягче, но всё ещё заметный -->
+
+    <color name="ImposterGold">#DAA520</color> <!-- Золотисто-жёлтый, но не кислотный -->
+    <color name="ImposterGold2">#B78C1A</color> <!-- Затемнённый вариант -->
+
+    <color name="ImposterSteelBlue">#4682B4</color> <!-- Холодный голубой, ближе к серому -->
+    <color name="ImposterSteelBlue2">#3A719D</color> <!-- Затемнённый вариант -->
+
+    <color name="ImposterLime">#BFFF00</color> <!-- Лаймовый, очень контрастный -->
+    <color name="ImposterLime2">#9FCC00</color>
+
+</resources>
