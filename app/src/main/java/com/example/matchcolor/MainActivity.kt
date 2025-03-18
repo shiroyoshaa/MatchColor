@@ -19,10 +19,11 @@ import com.example.matchcolor.databinding.ActivityMainBinding
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.suspendCancellableCoroutine
 
+
 class MainActivity : AppCompatActivity() {
     private var animator: ObjectAnimator? = null
-    private var total = 0
     private var flag2 = false
+    private var total = 0
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,32 +35,35 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        val easyCirle = clEasyRandomColors()
         binding.btnStart.setOnClickListener {
-            binding.easyBlocker.visibility = View.VISIBLE
             btnAndWindowsAnimationZero(binding.btnStart,binding.clstartwindow)
             alphaOneForAll(binding.clEasyCircles)
             pbAndScoresAnimateAlphaOne()
             restartPbAnimation()
-            val easyCirle = clEasyRandomColors()
             easyCirle.setOnClickListener {
+                easyCirle.contentDescription = ""
                 total += 1
-                binding.tvScore.setText("score: " + total.toString())
+                binding.tvScore.setText("score: $total")
                 alphaZeroForAll(binding.clEasyCircles)
                 alphaOneForAll(binding.clMediumCircles)
-                var meduimCirle = clMeduimRandomColors()
+                val meduimCirle = clMeduimRandomColors()
                 meduimCirle.setOnClickListener {
+                    meduimCirle.contentDescription = ""
                     total += 1
-                    binding.tvScore.setText("score: " + total.toString())
+                    binding.tvScore.setText("score: $total")
                     alphaZeroForAll(binding.clMediumCircles)
                     alphaOneForAll(binding.clHardCircles)
                     lifecycleScope.launch {
                         while (flag2 == false) {
                             var a = clHardRandomColors()
                             waitForClick(a)
+                            a.contentDescription = ""
                             total += 1
-                            binding.tvScore.setText("score: " + total.toString())
+                            binding.tvScore.setText("score: $total")
                             if (total == 20) {
                                 flag2 = true
+                                easyCirle.contentDescription = "imposter"
                                 wellDoneWindow()
                             }
                         }
@@ -77,6 +81,7 @@ class MainActivity : AppCompatActivity() {
             binding.tvScore.setText("SCORE: " + total.toString())
           }
       }
+
     private fun wellDoneWindow(){
         alphaZeroForAll(binding.clHardCircles)
         pbAndScroesAnimateAlphaZero()
@@ -109,6 +114,7 @@ class MainActivity : AppCompatActivity() {
             var mainBinding = listOf(cvEasyFirst,cvEasySecond,cvEasyThird).random()
             var listOfCircles = listOf(cvEasyFirst,cvEasySecond,cvEasyThird)
             for (i in listOfCircles) {
+                i.contentDescription = "normal circle"
                 i.setOnClickListener {
                     Toast.makeText(this@MainActivity, "wrong circle", Toast.LENGTH_SHORT).show()
                     gameOver()
@@ -116,6 +122,8 @@ class MainActivity : AppCompatActivity() {
                 i.setCardBackgroundColor(TrueColor)
             }
             mainBinding.setCardBackgroundColor(imposterColor)
+            mainBinding.contentDescription = "imposter"
+            mainBinding.setTag("imposter")
             return mainBinding
         }
     }
@@ -164,6 +172,7 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(this@MainActivity, "wrong circle", Toast.LENGTH_SHORT).show()
                 }
             }
+            mainBindingImposter.contentDescription = "imposter"
             mainBindingImposter.setCardBackgroundColor(imposterColor)
             return mainBindingImposter
         }
@@ -189,6 +198,7 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(this@MainActivity, "wrong circle", Toast.LENGTH_SHORT).show()
                 }
             }
+            mainBindingImposter.contentDescription = "imposter"
             mainBindingImposter.setCardBackgroundColor(imposterColor)
             return mainBindingImposter
         }
@@ -281,7 +291,7 @@ class MainActivity : AppCompatActivity() {
     }
     private fun restartPbAnimation() {
         animator = ObjectAnimator.ofInt(binding.pb,"progress",100).apply {
-            duration = 60000
+            duration = 50000
             interpolator = LinearInterpolator()
             start()
             addUpdateListener { animation ->
